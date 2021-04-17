@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>CanvasRadialGradiant</servlet-name>
-        <servlet-class>com.math.linearalgebra.CanvasRadialGradiant</servlet-class>
+        <servlet-class>canvasShapes.CanvasRadialGradiant</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CanvasRadialGradiant</servlet-name>

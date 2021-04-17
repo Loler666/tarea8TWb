@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package canvasShapes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,12 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Luis Otero
+ * @author Odec
  */
-@WebServlet(name = "CanvasShapes", urlPatterns = {"/CanvasShapes"})
-public class CanvasShapes extends HttpServlet {
+@WebServlet(name = "CanvasTexto", urlPatterns = {"/CanvasTexto"})
+public class CanvasTexto extends HttpServlet {
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,20 +32,30 @@ public class CanvasShapes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String shapes = request.getParameter("shapes");
-        
         try (PrintWriter out = response.getWriter()) {
+            
+        Double X = Double.parseDouble(request.getParameter("x"));
+        Double Y = Double.parseDouble(request.getParameter("y"));
+        String texto = request.getParameter("texto");
+
             /* TODO output your page here. You may use following sample code. */
-            if(shapes.equals("texto")){
-                response.sendRedirect("texto.html");
-            }
-            else if(shapes.equals("textostroke")){
-                response.sendRedirect("textostroke.html");
-            }
-            else if(shapes.equals("radialgradient")){
-                response.sendRedirect("radialgradient.html");
-            }
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CanvasTexto</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<canvas id=\"myCanvas\" width=\"500\" height=\"400\" style=\"border:1px solid #d3d3d3;\">\n" +
+"Your browser does not support the HTML5 canvas tag.</canvas>");
+            out.println("<script>");
+            out.println("var c = document.getElementById(\"myCanvas\");");
+            out.println("var ctx = c.getContext(\"2d\");");
+            out.println("ctx.font = \"30px Georgia\";");
+            out.println("ctx.fillText(\"" + texto +"\","+ X+"," +Y+");");
+            out.println("</script>");
+            out.println("<h1></h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
