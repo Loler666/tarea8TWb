@@ -5,12 +5,10 @@
         </title>
     </head>
     <body>
-        <form method="get" action="CanvasShapes">
-            <select name="shapes">
-                <option value="texto" id="01">fill Text</option>
-                <option value="textostroke" id="02">stroke Text</option>
-                <option value="radialgradient" id="03">radial Gradient</option>
-            </select>
+        <form method="get" action="CanvasTexto">
+            <input type="number" min="0" max="500" name="x">X<br>
+            <input type="number" min="30" max="400" name="y">Y<br>
+            <input type="text" name="texto">Texto a elegir<br>
             <input type="submit" />
         </form>
     </body>
